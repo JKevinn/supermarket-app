@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $orderStock =  $request->short_stock ? 'stock' : 'name';
         $upStock = $request->up_stock ? 'stock' : 'name';
-        $products = Product::where('name', 'LIKE' , '%' . $request->search_obat . '%')->orderby($orderStock , 'ASC')->simplepaginate(6)->appends($request->all());
+        $products = Product::where('name', 'LIKE' , '%' . $request->search . '%')->orderby($orderStock , 'ASC')->simplepaginate(6)->appends($request->all());
         return view('product.index', compact('products'));
     }
 
